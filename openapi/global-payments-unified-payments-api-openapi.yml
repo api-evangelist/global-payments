@@ -1,0 +1,171 @@
+openapi: 3.1.0
+info:
+  title: Global Payments Unified Payments API
+  description: >-
+    The Global Payments Unified Payments API is a cloud-powered REST API
+    providing partners and developers with a single integration point for
+    payment facilitation, card issuing, and multi-currency payment processing.
+    Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.
+  version: '1.0'
+servers:
+  - url: https://apis.globalpay.com
+tags:
+  - name: Transactions
+    description: Process and manage payment transactions.
+  - name: Payment Methods
+    description: Manage stored payment methods and tokenization.
+  - name: Settlements
+    description: Access settlement and funding information.
+  - name: Disputes
+    description: Manage chargebacks and disputes.
+paths:
+  /transactions:
+    get:
+      operationId: listTransactions
+      summary: List transactions
+      description: >-
+        Retrieves a list of payment transactions with filtering by date range,
+        status, and payment method.
+      tags:
+        - Transactions
+      parameters:
+        - name: startDate
+          in: query
+          description: Filter transactions from this date.
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          description: Filter transactions up to this date.
+          schema:
+            type: string
+            format: date
+        - name: status
+          in: query
+          description: Filter by transaction status.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createTransaction
+      summary: Create a transaction
+      description: >-
+        Initiates a new payment transaction including authorization, sale,
+        or pre-authorization.
+      tags:
+        - Transactions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                currency:
+                  type: string
+                paymentMethod:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    token:
+                      type: string
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Transaction created successfully
+  /payment-methods:
+    get:
+      operationId: listPaymentMethods
+      summary: List payment methods
+      description: >-
+        Retrieves stored payment methods for a given customer including
+        tokenized card data.
+      tags:
+        - Payment Methods
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createPaymentMethod
+      summary: Store a payment method
+      description: >-
+        Tokenizes and stores a new payment method for future use.
+      tags:
+        - Payment Methods
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                cardNumber:
+                  type: string
+                expiryDate:
+                  type: string
+                cardholderName:
+                  type: string
+      responses:
+        '201':
+          description: Payment method stored successfully
+  /settlements:
+    get:
+      operationId: listSettlements
+      summary: List settlements
+      description: >-
+        Retrieves settlement and funding records with filtering by date
+        range and status.
+      tags:
+        - Settlements
+      parameters:
+        - name: startDate
+          in: query
+          description: Filter settlements from this date.
+          schema:
+            type: string
+            format: date
+        - name: endDate
+          in: query
+          description: Filter settlements up to this date.
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Success
+  /disputes:
+    get:
+      operationId: listDisputes
+      summary: List disputes
+      description: >-
+        Retrieves a list of chargebacks and disputes with status and
+        resolution details.
+      tags:
+        - Disputes
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://apis.globalpay.com/oauth2/token
+          scopes:
+            transactions:read: Read transactions
+            transactions:write: Create transactions
+            payment-methods:read: Read payment methods
+            payment-methods:write: Store payment methods
+    bearerAuth:
+      type: http
+      scheme: bearer
