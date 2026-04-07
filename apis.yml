@@ -1,5 +1,6 @@
 aid: global-payments
-url: https://raw.githubusercontent.com/api-evangelist/global-payments/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/global-payments/refs/heads/main/apis.yml
 apis:
   - aid: global-payments:payments-api
     name: Global Payments Unified Payments API
@@ -9,7 +10,8 @@ apis:
       - Payment Technology
       - POS
       - eCommerce
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://apis.globalpay.com
     humanURL: https://developer.globalpayments.com/
     properties:
@@ -33,13 +35,15 @@ apis:
       - Payment Integration
       - ISV
       - Software Partners
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.globalpaymentsintegrated.com
     humanURL: https://developer.globalpaymentsintegrated.com/
     properties:
       - url: https://developer.globalpaymentsintegrated.com/
         type: Portal
-      - url: https://www.globalpaymentsintegrated.com/en-us/apis-and-sdks/developer-resources
+      - url: 
+          https://www.globalpaymentsintegrated.com/en-us/apis-and-sdks/developer-resources
         type: Documentation
     description: >-
       The Global Payments Integrated API provides ISVs and software partners
@@ -47,3 +51,6 @@ apis:
       ACH payments, and reporting. The platform supports semi-integrated and
       fully integrated solutions with developer resources, SDKs, and sandbox
       environments.
+description: >-
+  Global Payments is a leading worldwide provider of payment technology and software
+  solutions delivering innovative services to customers globally.
