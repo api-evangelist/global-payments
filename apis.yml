@@ -1,17 +1,15 @@
 aid: global-payments
-url: 
-  https://raw.githubusercontent.com/api-evangelist/global-payments/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/global-payments/refs/heads/main/apis.yml
 apis:
   - aid: global-payments:payments-api
     name: Global Payments Unified Payments API
     tags:
-      - Payments
+      - eCommerce
       - Payment Processing
       - Payment Technology
+      - Payments
       - POS
-      - eCommerce
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://apis.globalpay.com
     humanURL: https://developer.globalpayments.com/
     properties:
@@ -31,19 +29,17 @@ apis:
   - aid: global-payments:integrated-api
     name: Global Payments Integrated API
     tags:
-      - Payments
-      - Payment Integration
       - ISV
+      - Payment Integration
+      - Payments
       - Software Partners
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.globalpaymentsintegrated.com
     humanURL: https://developer.globalpaymentsintegrated.com/
     properties:
       - url: https://developer.globalpaymentsintegrated.com/
         type: Portal
-      - url: 
-          https://www.globalpaymentsintegrated.com/en-us/apis-and-sdks/developer-resources
+      - url: https://www.globalpaymentsintegrated.com/en-us/apis-and-sdks/developer-resources
         type: Documentation
     description: >-
       The Global Payments Integrated API provides ISVs and software partners

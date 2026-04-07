@@ -10,14 +10,14 @@ info:
 servers:
   - url: https://apis.globalpay.com
 tags:
-  - name: Transactions
-    description: Process and manage payment transactions.
+  - name: Disputes
+    description: Manage chargebacks and disputes.
   - name: Payment Methods
     description: Manage stored payment methods and tokenization.
   - name: Settlements
     description: Access settlement and funding information.
-  - name: Disputes
-    description: Manage chargebacks and disputes.
+  - name: Transactions
+    description: Process and manage payment transactions.
 paths:
   /transactions:
     get:
