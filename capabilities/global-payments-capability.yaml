@@ -1,0 +1,264 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Global Payments Unified Payments API
+  description: The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with
+    a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox
+    testing, comprehensive SDKs, and OAuth 2.0 authentication.
+  tags:
+  - Global
+  - Payments
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: global-payments
+    baseUri: https://apis.globalpay.com
+    description: Global Payments Unified Payments API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GLOBAL_PAYMENTS_TOKEN}}'
+    resources:
+    - name: transactions
+      path: /transactions
+      operations:
+      - name: listtransactions
+        method: GET
+        description: List transactions
+        inputParameters:
+        - name: startDate
+          in: query
+          type: string
+          description: Filter transactions from this date.
+        - name: endDate
+          in: query
+          type: string
+          description: Filter transactions up to this date.
+        - name: status
+          in: query
+          type: string
+          description: Filter by transaction status.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtransaction
+        method: POST
+        description: Create a transaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: payment-methods
+      path: /payment-methods
+      operations:
+      - name: listpaymentmethods
+        method: GET
+        description: List payment methods
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createpaymentmethod
+        method: POST
+        description: Store a payment method
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: settlements
+      path: /settlements
+      operations:
+      - name: listsettlements
+        method: GET
+        description: List settlements
+        inputParameters:
+        - name: startDate
+          in: query
+          type: string
+          description: Filter settlements from this date.
+        - name: endDate
+          in: query
+          type: string
+          description: Filter settlements up to this date.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: disputes
+      path: /disputes
+      operations:
+      - name: listdisputes
+        method: GET
+        description: List disputes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: global-payments-rest
+    description: REST adapter for Global Payments Unified Payments API.
+    resources:
+    - path: /transactions
+      name: listtransactions
+      operations:
+      - method: GET
+        name: listtransactions
+        description: List transactions
+        call: global-payments.listtransactions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /transactions
+      name: createtransaction
+      operations:
+      - method: POST
+        name: createtransaction
+        description: Create a transaction
+        call: global-payments.createtransaction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /payment-methods
+      name: listpaymentmethods
+      operations:
+      - method: GET
+        name: listpaymentmethods
+        description: List payment methods
+        call: global-payments.listpaymentmethods
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /payment-methods
+      name: createpaymentmethod
+      operations:
+      - method: POST
+        name: createpaymentmethod
+        description: Store a payment method
+        call: global-payments.createpaymentmethod
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /settlements
+      name: listsettlements
+      operations:
+      - method: GET
+        name: listsettlements
+        description: List settlements
+        call: global-payments.listsettlements
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /disputes
+      name: listdisputes
+      operations:
+      - method: GET
+        name: listdisputes
+        description: List disputes
+        call: global-payments.listdisputes
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: global-payments-mcp
+    transport: http
+    description: MCP adapter for Global Payments Unified Payments API for AI agent use.
+    tools:
+    - name: listtransactions
+      description: List transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: global-payments.listtransactions
+      with:
+        startDate: tools.startDate
+        endDate: tools.endDate
+        status: tools.status
+      inputParameters:
+      - name: startDate
+        type: string
+        description: Filter transactions from this date.
+      - name: endDate
+        type: string
+        description: Filter transactions up to this date.
+      - name: status
+        type: string
+        description: Filter by transaction status.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createtransaction
+      description: Create a transaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: global-payments.createtransaction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listpaymentmethods
+      description: List payment methods
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: global-payments.listpaymentmethods
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createpaymentmethod
+      description: Store a payment method
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: global-payments.createpaymentmethod
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listsettlements
+      description: List settlements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: global-payments.listsettlements
+      with:
+        startDate: tools.startDate
+        endDate: tools.endDate
+      inputParameters:
+      - name: startDate
+        type: string
+        description: Filter settlements from this date.
+      - name: endDate
+        type: string
+        description: Filter settlements up to this date.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdisputes
+      description: List disputes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: global-payments.listdisputes
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GLOBAL_PAYMENTS_TOKEN: GLOBAL_PAYMENTS_TOKEN
