@@ -4,153 +4,75 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Global Payments
 providerId: global-payments
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - eCommerce
-  - Payment Processing
-  - Payment Technology
   - Payments
+  - Payment Processing
+  - eCommerce
   - POS
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: Global Payments (Heartland / TSYS / Global Payments Integrated) does not publish standardized
+  per-transaction pricing on its developer-facing portals. Pricing is custom-quoted per merchant and varies
+  by industry vertical, processing volume, channel (card-present vs card-not-present), and bundled product
+  scope (POS hardware, gateway, payouts). API access is free with a merchant account; cost lives in the
+  underlying payment processing rates.
+notes: Standard interchange-plus / tiered pricing models apply but specific take-rates are not publicly
+  posted. Reconcile only when a published rate card is available.
+sources:
+  - https://www.globalpayments.com/
+  - https://developer.globalpay.com/
 plans:
-  - id: global-payments-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Global Payments API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://apis.globalpay.com
-          - https://api.globalpaymentsintegrated.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://apis.globalpay.com
-          - https://api.globalpaymentsintegrated.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Global Payments Unified Payments API
-      - name: Global Payments Integrated API
-  - id: global-payments-pro
-    name: Professional
-    type: paid
-    description: Production tier for Global Payments. Provides higher quotas, priority support, and access
-      to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://apis.globalpay.com
-          - https://api.globalpaymentsintegrated.com
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://apis.globalpay.com
-          - https://api.globalpaymentsintegrated.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://apis.globalpay.com
-          - https://api.globalpaymentsintegrated.com
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Global Payments Unified Payments API
-      - name: Global Payments Integrated API
-  - id: global-payments-enterprise
-    name: Enterprise
+  - id: global-payments-merchant
+    name: Merchant Account (Custom)
     type: enterprise
-    description: Custom-negotiated tier for Global Payments. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+    description: Standard merchant agreement — interchange-plus or tiered pricing negotiated per merchant.
+      API access is included with the merchant account.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Per-transaction processing fee
+        name: tx_processing
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: custom (interchange-plus or tiered, contact sales)
+        userMultiplied: false
+      - label: Monthly gateway / platform fee
+        name: gateway_fee
+        type: subscription
+        metric: month
         limit: -1
         timeFrame: month
-        geo: configurable
-        domains:
-          - https://apis.globalpay.com
-          - https://api.globalpaymentsintegrated.com
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://apis.globalpay.com
-          - https://api.globalpaymentsintegrated.com
+        geo: global
         unit: 1
         price: custom
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
+      - name: Global Payments Unified Payments API
+      - name: Global Payments Integrated API
+      - name: Card-present and card-not-present processing
+      - name: Multi-currency settlement
+  - id: global-payments-enterprise
+    name: Enterprise / Strategic Partner
+    type: enterprise
+    description: Custom platform contract for ISVs, marketplaces, and high-volume merchants. Negotiated
+      take-rate, dedicated support, and integration assistance.
+    entries:
+      - label: Negotiated rate
+        name: enterprise_rate
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Volume-tier discounts
+      - name: Dedicated technical account management
+      - name: Co-branded developer support
       - name: Global Payments Unified Payments API
       - name: Global Payments Integrated API
 maintainers:

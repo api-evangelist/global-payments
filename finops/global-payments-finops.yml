@@ -1,143 +1,90 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Global Payments
+providerId: global-payments
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - Payments
+  - Payment Processing
+description: 'FOCUS-aligned FinOps framing for Global Payments: take-rate-based payment processing with
+  monthly gateway/platform fees. Specific rates are merchant-specific and not publicly posted, so this
+  artifact captures meter shape only.'
+notes: Reconcile after a public rate card or account-specific contract is referenced.
+sources:
+  - https://www.globalpayments.com/
+  - https://developer.globalpay.com/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: Global Payments
-providerId: global-payments
-publisherName: Global Payments
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - eCommerce
-  - Payment Processing
-  - Payment Technology
-  - Payments
-  - POS
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Global Payments API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: Global Payments Inc.
+serviceCategory: Payments
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
-  billingCurrency: USD
+  pricingCategory: Take Rate + Subscription
+  billingFrequency: Continuous Settlement
+  billingCurrency: USD (settlement varies)
   chargeCategories:
     - Usage
     - Purchase
-    - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+    - Refund
+    - Credit
 focusColumns:
   ServiceName: Global Payments
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Payments
   ProviderName: Global Payments
-  PublisherName: Global Payments
-  InvoiceIssuerName: Global Payments
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  PublisherName: Global Payments Inc.
+  InvoiceIssuerName: Global Payments Inc.
   BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: card_transactions
+    description: Authorized card transactions processed
+    unit: transaction
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+      - card_brand
+      - card_present
+      - currency
+      - country
+  - name: transaction_volume
+    description: Total processed volume
+    unit: USD
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
+      - card_brand
+      - currency
+  - name: chargebacks
+    description: Disputed / charged-back transactions
+    unit: transaction
     aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Global Payments Unified Payments API
-    baseURL: https://apis.globalpay.com
-    tags:
-      - eCommerce
-      - Payment Processing
-      - Payment Technology
-      - Payments
-      - POS
-    serviceName: Global Payments Unified Payments API
-    serviceCategory: API
-  - name: Global Payments Integrated API
-    baseURL: https://api.globalpaymentsintegrated.com
-    tags:
-      - ISV
-      - Payment Integration
-      - Payments
-      - Software Partners
-    serviceName: Global Payments Integrated API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+  - name: monthly_platform_fee
+    description: Gateway / platform recurring fee
+    unit: month
+    aggregation: sum
+  - name: pos_devices
+    description: Active card-present POS terminals
+    unit: device-month
+    aggregation: max
+principles:
+  - name: Visibility
+    description: Use Global Payments merchant statements and reporting APIs to surface daily settlement,
+      take-rate, and chargeback exposure.
+  - name: Allocation
+    description: Tag payments by storefront / channel / business unit via the gateway's metadata fields
+      to allocate processing cost.
+  - name: Optimization
+    description: Negotiate interchange-plus pricing at scale; route low-risk volume to cheaper rails;
+      monitor downgrade rates that erode effective take-rate.
+  - name: Accountability
+    description: Finance reconciles daily settlement files against ledger; merchant operations owns chargeback
+      response and rate renegotiation.
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
