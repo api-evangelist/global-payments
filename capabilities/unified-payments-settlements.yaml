@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Global Payments Unified Payments API — Settlements
+  description: 'Global Payments Unified Payments API — Settlements. 1 operations. Lead operation: List settlements. Self-contained
+    Naftiko capability covering one Global Payments business surface.'
+  tags:
+  - Global Payments
+  - Settlements
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GLOBAL_PAYMENTS_API_KEY: GLOBAL_PAYMENTS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unified-payments-settlements
+    baseUri: https://apis.globalpay.com
+    description: Global Payments Unified Payments API — Settlements business capability. Self-contained, no shared references.
+    resources:
+    - name: settlements
+      path: /settlements
+      operations:
+      - name: listsettlements
+        method: GET
+        description: List settlements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: startDate
+          in: query
+          type: string
+          description: Filter settlements from this date.
+        - name: endDate
+          in: query
+          type: string
+          description: Filter settlements up to this date.
+    authentication:
+      type: bearer
+      token: '{{env.GLOBAL_PAYMENTS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: unified-payments-settlements-rest
+    port: 8080
+    description: REST adapter for Global Payments Unified Payments API — Settlements. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/settlements
+      name: settlements
+      description: REST surface for settlements.
+      operations:
+      - method: GET
+        name: listsettlements
+        description: List settlements
+        call: unified-payments-settlements.listsettlements
+        with:
+          startDate: rest.startDate
+          endDate: rest.endDate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unified-payments-settlements-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Global Payments Unified Payments API — Settlements. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: list-settlements
+      description: List settlements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unified-payments-settlements.listsettlements
+      with:
+        startDate: tools.startDate
+        endDate: tools.endDate
+      outputParameters:
+      - type: object
+        mapping: $.
