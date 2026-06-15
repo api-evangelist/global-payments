@@ -1,0 +1,513 @@
+{
+  "item": [
+    {
+      "id": "17d4c6c4-3dd6-4beb-926b-ffe12cc8f00d",
+      "name": "Disputes",
+      "description": {
+        "content": "Manage chargebacks and disputes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df6ced81-d70a-41f0-b943-42bc860e1062",
+          "name": "List disputes",
+          "request": {
+            "name": "List disputes",
+            "description": {
+              "content": "Retrieves a list of chargebacks and disputes with status and resolution details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "disputes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf2842d7-7878-4b6d-ac36-b8f46b60d393",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disputes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "02f5b953-4d80-4185-8198-f265261629ad",
+      "name": "Payment Methods",
+      "description": {
+        "content": "Manage stored payment methods and tokenization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35f4da0a-aac5-4649-a71b-f8fe0b268af0",
+          "name": "List payment methods",
+          "request": {
+            "name": "List payment methods",
+            "description": {
+              "content": "Retrieves stored payment methods for a given customer including tokenized card data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment-methods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "112b2152-49ce-42df-b56e-5f40a68cb33f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-methods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b44809a-2d8e-4c3c-ab5e-5fe4dc2cd5f4",
+          "name": "Store a payment method",
+          "request": {
+            "name": "Store a payment method",
+            "description": {
+              "content": "Tokenizes and stores a new payment method for future use.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payment-methods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<string>\",\n  \"cardholderName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6e24435-4194-4b68-a297-bb2a66b39b2f",
+              "name": "Payment method stored successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payment-methods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<string>\",\n  \"cardholderName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7bf28c36-3ba9-4b2b-9fef-bae662a46191",
+      "name": "Settlements",
+      "description": {
+        "content": "Access settlement and funding information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee65b28c-4fd9-4ed3-b1af-f5605cf95b96",
+          "name": "List settlements",
+          "request": {
+            "name": "List settlements",
+            "description": {
+              "content": "Retrieves settlement and funding records with filtering by date range and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settlements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Filter settlements from this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "Filter settlements up to this date."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23f32f72-9f1e-492e-be60-7394726f5a45",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "83465e91-fa22-442b-84d7-11f8a5516455",
+      "name": "Transactions",
+      "description": {
+        "content": "Process and manage payment transactions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "39472ef9-3829-400c-a136-a79e40bc1d21",
+          "name": "List transactions",
+          "request": {
+            "name": "List transactions",
+            "description": {
+              "content": "Retrieves a list of payment transactions with filtering by date range, status, and payment method.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Filter transactions from this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "Filter transactions up to this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by transaction status."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52799ed2-d30f-4f03-92df-205515e80406",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e6a9886-6151-49ac-b883-001ddd914352",
+          "name": "Create a transaction",
+          "request": {
+            "name": "Create a transaction",
+            "description": {
+              "content": "Initiates a new payment transaction including authorization, sale, or pre-authorization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"paymentMethod\": {\n    \"type\": \"<string>\",\n    \"token\": \"<string>\"\n  },\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65337644-053e-475f-820a-c3c9edcc10aa",
+              "name": "Transaction created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"currency\": \"<string>\",\n  \"paymentMethod\": {\n    \"type\": \"<string>\",\n    \"token\": \"<string>\"\n  },\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.globalpay.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "942289e8-c996-4e40-bed1-5a88baa8f9b7",
+    "name": "Global Payments Unified Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.",
+      "type": "text/plain"
+    }
+  }
+}

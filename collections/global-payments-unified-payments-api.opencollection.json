@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Global Payments Unified Payments API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.globalpay.com/transactions",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions from this date."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter transactions up to this date."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by transaction status."
+              }
+            ]
+          },
+          "docs": "Retrieves a list of payment transactions with filtering by date range, status, and payment method."
+        },
+        {
+          "info": {
+            "name": "Create a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://apis.globalpay.com/transactions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiates a new payment transaction including authorization, sale, or pre-authorization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payment Methods",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List payment methods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.globalpay.com/payment-methods"
+          },
+          "docs": "Retrieves stored payment methods for a given customer including tokenized card data."
+        },
+        {
+          "info": {
+            "name": "Store a payment method",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://apis.globalpay.com/payment-methods",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Tokenizes and stores a new payment method for future use."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Settlements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List settlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.globalpay.com/settlements",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter settlements from this date."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter settlements up to this date."
+              }
+            ]
+          },
+          "docs": "Retrieves settlement and funding records with filtering by date range and status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Disputes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List disputes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.globalpay.com/disputes"
+          },
+          "docs": "Retrieves a list of chargebacks and disputes with status and resolution details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
