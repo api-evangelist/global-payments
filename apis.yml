@@ -8,7 +8,7 @@ description: >-
 type: Index
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - eCommerce
   - Payment Processing
@@ -29,7 +29,7 @@ apis:
       - Payment Technology
       - Payments
       - POS
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://apis.globalpay.com
     humanURL: https://developer.globalpayments.com/
     properties:
@@ -51,7 +51,7 @@ apis:
       - Payment Integration
       - Payments
       - Software Partners
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.globalpaymentsintegrated.com
     humanURL: https://developer.globalpaymentsintegrated.com/
     properties:
