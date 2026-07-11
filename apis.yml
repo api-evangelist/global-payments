@@ -64,6 +64,8 @@ apis:
       including credit card processing, ACH payments, and reporting. The platform supports semi-integrated and fully
       integrated solutions with developer resources, SDKs, and sandbox environments.
 common:
+  - type: OAuthScopes
+    url: scopes/global-payments-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/globalpayments
   - type: LinkedIn

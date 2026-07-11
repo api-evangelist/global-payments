@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/global-payments-unified-payments-api-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/global-payments-unified-payments-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://apis.globalpay.com/oauth2/token
+scopes:
+- scope: payment-methods:read
+  description: Read payment methods
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/global-payments-unified-payments-api-openapi.yml
+- scope: payment-methods:write
+  description: Store payment methods
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/global-payments-unified-payments-api-openapi.yml
+- scope: transactions:read
+  description: Read transactions
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/global-payments-unified-payments-api-openapi.yml
+- scope: transactions:write
+  description: Create transactions
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/global-payments-unified-payments-api-openapi.yml
