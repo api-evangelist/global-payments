@@ -64,6 +64,8 @@ apis:
       including credit card processing, ACH payments, and reporting. The platform supports semi-integrated and fully
       integrated solutions with developer resources, SDKs, and sandbox environments.
 common:
+  - type: AgenticAccess
+    url: agentic-access/global-payments-agentic-access.yml
   - type: DomainSecurity
     url: security/global-payments-domain-security.yml
   - type: Authentication
