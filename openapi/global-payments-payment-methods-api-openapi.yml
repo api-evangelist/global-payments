@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: Global Payments Unified Payments Disputes Payment Methods API
+  description: The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.
+  version: '1.0'
+servers:
+- url: https://apis.globalpay.com
+tags:
+- name: Payment Methods
+  description: Manage stored payment methods and tokenization.
+paths:
+  /payment-methods:
+    get:
+      operationId: listPaymentMethods
+      summary: List payment methods
+      description: Retrieves stored payment methods for a given customer including tokenized card data.
+      tags:
+      - Payment Methods
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createPaymentMethod
+      summary: Store a payment method
+      description: Tokenizes and stores a new payment method for future use.
+      tags:
+      - Payment Methods
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                cardNumber:
+                  type: string
+                expiryDate:
+                  type: string
+                cardholderName:
+                  type: string
+      responses:
+        '201':
+          description: Payment method stored successfully
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://apis.globalpay.com/oauth2/token
+          scopes:
+            transactions:read: Read transactions
+            transactions:write: Create transactions
+            payment-methods:read: Read payment methods
+            payment-methods:write: Store payment methods
+    bearerAuth:
+      type: http
+      scheme: bearer

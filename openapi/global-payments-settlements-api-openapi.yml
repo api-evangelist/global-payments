@@ -1,0 +1,49 @@
+openapi: 3.1.0
+info:
+  title: Global Payments Unified Payments Disputes Settlements API
+  description: The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.
+  version: '1.0'
+servers:
+- url: https://apis.globalpay.com
+tags:
+- name: Settlements
+  description: Access settlement and funding information.
+paths:
+  /settlements:
+    get:
+      operationId: listSettlements
+      summary: List settlements
+      description: Retrieves settlement and funding records with filtering by date range and status.
+      tags:
+      - Settlements
+      parameters:
+      - name: startDate
+        in: query
+        description: Filter settlements from this date.
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        description: Filter settlements up to this date.
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://apis.globalpay.com/oauth2/token
+          scopes:
+            transactions:read: Read transactions
+            transactions:write: Create transactions
+            payment-methods:read: Read payment methods
+            payment-methods:write: Store payment methods
+    bearerAuth:
+      type: http
+      scheme: bearer

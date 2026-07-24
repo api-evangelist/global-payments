@@ -1,0 +1,83 @@
+openapi: 3.1.0
+info:
+  title: Global Payments Unified Payments Disputes Transactions API
+  description: The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.
+  version: '1.0'
+servers:
+- url: https://apis.globalpay.com
+tags:
+- name: Transactions
+  description: Process and manage payment transactions.
+paths:
+  /transactions:
+    get:
+      operationId: listTransactions
+      summary: List transactions
+      description: Retrieves a list of payment transactions with filtering by date range, status, and payment method.
+      tags:
+      - Transactions
+      parameters:
+      - name: startDate
+        in: query
+        description: Filter transactions from this date.
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        description: Filter transactions up to this date.
+        schema:
+          type: string
+          format: date
+      - name: status
+        in: query
+        description: Filter by transaction status.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+    post:
+      operationId: createTransaction
+      summary: Create a transaction
+      description: Initiates a new payment transaction including authorization, sale, or pre-authorization.
+      tags:
+      - Transactions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                currency:
+                  type: string
+                paymentMethod:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    token:
+                      type: string
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Transaction created successfully
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://apis.globalpay.com/oauth2/token
+          scopes:
+            transactions:read: Read transactions
+            transactions:write: Create transactions
+            payment-methods:read: Read payment methods
+            payment-methods:write: Store payment methods
+    bearerAuth:
+      type: http
+      scheme: bearer

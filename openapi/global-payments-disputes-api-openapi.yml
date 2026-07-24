@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: Global Payments Unified Payments Disputes API
+  description: The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.
+  version: '1.0'
+servers:
+- url: https://apis.globalpay.com
+tags:
+- name: Disputes
+  description: Manage chargebacks and disputes.
+paths:
+  /disputes:
+    get:
+      operationId: listDisputes
+      summary: List disputes
+      description: Retrieves a list of chargebacks and disputes with status and resolution details.
+      tags:
+      - Disputes
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://apis.globalpay.com/oauth2/token
+          scopes:
+            transactions:read: Read transactions
+            transactions:write: Create transactions
+            payment-methods:read: Read payment methods
+            payment-methods:write: Store payment methods
+    bearerAuth:
+      type: http
+      scheme: bearer
