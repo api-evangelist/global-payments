@@ -6,6 +6,17 @@ description: >-
   developer.globalpaymentsintegrated.com, offering a unified cloud-powered REST API for payment facilitation, card
   issuing, and multi-currency processing, along with integrated payment solutions for ISVs and software partners.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-11'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
