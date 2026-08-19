@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Global Payments Unified Payments Disputes Settlements API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Settlements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List settlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.globalpay.com/settlements",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter settlements from this date."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter settlements up to this date."
+              }
+            ]
+          },
+          "docs": "Retrieves settlement and funding records with filtering by date range and status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

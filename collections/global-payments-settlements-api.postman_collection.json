@@ -1,0 +1,112 @@
+{
+  "item": [
+    {
+      "id": "44b5d7e3-2e27-42b5-9c5e-9584b93b9128",
+      "name": "Settlements",
+      "description": {
+        "content": "Access settlement and funding information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f5f46c7-b959-48ce-8b06-94cb2d62df48",
+          "name": "List settlements",
+          "request": {
+            "name": "List settlements",
+            "description": {
+              "content": "Retrieves settlement and funding records with filtering by date range and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "settlements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Filter settlements from this date."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "Filter settlements up to this date."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72ed1777-00d1-4ef0-84b4-b25986ae5a6f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "settlements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.globalpay.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "26da3ab7-8ca0-4721-a3bf-aea4922c070b",
+    "name": "Global Payments Unified Payments Disputes Settlements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.",
+      "type": "text/plain"
+    }
+  }
+}

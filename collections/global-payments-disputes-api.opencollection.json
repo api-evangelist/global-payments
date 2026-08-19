@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Global Payments Unified Payments Disputes API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Disputes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List disputes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.globalpay.com/disputes"
+          },
+          "docs": "Retrieves a list of chargebacks and disputes with status and resolution details."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

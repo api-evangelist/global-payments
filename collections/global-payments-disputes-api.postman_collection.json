@@ -1,0 +1,90 @@
+{
+  "item": [
+    {
+      "id": "88c09646-803e-48a4-afe1-8dcaa3ef1a1c",
+      "name": "Disputes",
+      "description": {
+        "content": "Manage chargebacks and disputes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89e5a51d-c510-458d-9611-581253d93ce6",
+          "name": "List disputes",
+          "request": {
+            "name": "List disputes",
+            "description": {
+              "content": "Retrieves a list of chargebacks and disputes with status and resolution details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "disputes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed157dbb-966f-45a6-8d4f-ff08eacf51f6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disputes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.globalpay.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2b2b1b4d-7488-49a0-91bd-fe9d16a5074f",
+    "name": "Global Payments Unified Payments Disputes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. Supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication.",
+      "type": "text/plain"
+    }
+  }
+}
