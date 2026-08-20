@@ -34,6 +34,13 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/global-payments.png
 tags:
+  - E-Commerce
+  - Payment Processing
+  - Payment Technology
+  - Payments
+  - Point-of-Sale
+  - Fortune 1000
+tags_raw:
   - eCommerce
   - Payment Processing
   - Payment Technology
@@ -98,6 +105,8 @@ apis:
   humanURL: https://developer.globalpayments.com/
   baseURL: https://apis.globalpay.com
   tags:
+  - Settlement
+  tags_raw:
   - Settlements
   properties:
   - type: OpenAPI
@@ -112,6 +121,8 @@ apis:
   humanURL: https://developer.globalpayments.com/
   baseURL: https://apis.globalpay.com
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
