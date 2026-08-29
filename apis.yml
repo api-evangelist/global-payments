@@ -132,6 +132,9 @@ apis:
   - type: Documentation
     url: https://developer.globalpayments.com/#!/api
 common:
+  - type: CapabilityMap
+    url: capabilities/global-payments-capability-edges.yml
+    name: Global Payments Business Capability Map
   - type: AgenticAccess
     url: agentic-access/global-payments-agentic-access.yml
   - type: DomainSecurity
