@@ -1,7 +1,9 @@
 ---
 title: Global Payments Joins Forces with AWS to Deliver ...
 url: https://investors.globalpayments.com/news-events/press-releases/detail/49/global-payments-joins-forces-with-aws-to-deliver-the-future
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Global Payments" press release artificial intelligence'
 position: 2
 source: serpapi-google

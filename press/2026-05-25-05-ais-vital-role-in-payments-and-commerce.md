@@ -1,7 +1,9 @@
 ---
 title: AI's vital role in payments and commerce
 url: https://www.globalpayments.com/insights/ai-in-payments-and-commerce
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Global Payments" press release artificial intelligence'
 position: 5
 source: serpapi-google

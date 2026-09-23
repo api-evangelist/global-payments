@@ -1,7 +1,9 @@
 ---
 title: Global Payments Inc. (@GlobalPaymentsInc)
 url: https://www.facebook.com/GlobalPaymentsInc/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Global Payments" press release artificial intelligence'
 position: 4
 source: serpapi-google
