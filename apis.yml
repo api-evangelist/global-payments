@@ -48,7 +48,7 @@ tags_raw:
   - POS
   - Fortune 1000
 created: '2026-03-21'
-modified: '2026-05-19'
+modified: '2026-10-06'
 url: https://raw.githubusercontent.com/api-evangelist/global-payments/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -132,6 +132,8 @@ apis:
   - type: Documentation
     url: https://developer.globalpayments.com/#!/api
 common:
+  - url: https://www.globalpayments.com/insights
+    type: Blog
   - type: CapabilityMap
     url: capabilities/global-payments-capability-edges.yml
     name: Global Payments Business Capability Map
