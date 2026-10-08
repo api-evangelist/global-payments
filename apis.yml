@@ -132,6 +132,12 @@ apis:
   - type: Documentation
     url: https://developer.globalpayments.com/#!/api
 common:
+  - type: Plans
+    url: plans/global-payments-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/global-payments-rate-limits.yml
+  - type: FinOps
+    url: finops/global-payments-finops.yml
   - url: https://www.globalpayments.com/insights
     type: Blog
   - type: CapabilityMap
