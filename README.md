@@ -1,4 +1,4 @@
-# Global Payments (global-payments)
+# Global Payments
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,82 +66,128 @@
 
 Global Payments is a leading worldwide provider of payment technology and software solutions delivering innovative services to customers globally. The company operates developer portals at developer.globalpayments.com and developer.globalpaymentsintegrated.com, offering a unified cloud-powered REST API for payment facilitation, card issuing, and multi-currency processing, along with integrated payment solutions for ISVs and software partners.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/global-payments/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/global-payments/refs/heads/main/apis.yml)
+**Areas:** E-Commerce · Payment Processing · Payment Technology · Payments · Point-of-Sale · Fortune 1000
 
-## Scope
+## Global Payments on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Global Payments is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/global-payments/](https://apis.io/providers/global-payments/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- eCommerce
-- Payment Processing
-- Payment Technology
-- Payments
-- POS
+- [Global Payments Integrated API](https://apis.io/apis/global-payments/integrated-api/) — The Global Payments Integrated API provides ISVs and software partners with payment integration capabilities including credit card processing, ACH payments,…
+- [Global Payments Disputes API](https://apis.io/apis/global-payments/global-payments-disputes-api/) — Manage chargebacks and disputes.
+- [Global Payments Payment Methods API](https://apis.io/apis/global-payments/global-payments-payment-methods-api/) — Manage stored payment methods and tokenization.
+- [Global Payments Settlements API](https://apis.io/apis/global-payments/global-payments-settlements-api/) — Access settlement and funding information.
+- [Global Payments Transactions API](https://apis.io/apis/global-payments/global-payments-transactions-api/) — Process and manage payment transactions.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Global Payments Unified Payments API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Global Payments Unified Payments API is a cloud-powered REST API providing partners and developers with a single integration point for payment facilitation, card issuing, and multi-currency payment processing. The API supports sandbox testing, comprehensive SDKs, and OAuth 2.0 authentication for secure payment operations across POS, eCommerce, and in-app channels.
+- [Global Payments Agentic Access](https://apis.io/agentic-access/global-payments/global-payments-agentic-access/)
 
-- **Human URL:** [https://developer.globalpayments.com/](https://developer.globalpayments.com/)
-- **Base URL:** `https://apis.globalpay.com`
+#### Collections (5)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- eCommerce
-- Payment Processing
-- Payment Technology
-- Payments
-- POS
+- [Global Payments Unified Payments Disputes API](https://apis.io/collections/global-payments/open-global-payments-disputes-api/)
+- [Global Payments Unified Payments Disputes Payment Methods API](https://apis.io/collections/global-payments/open-global-payments-payment-methods-api/)
+- [Global Payments Unified Payments Disputes Settlements API](https://apis.io/collections/global-payments/open-global-payments-settlements-api/)
+- [Global Payments Unified Payments Disputes Transactions API](https://apis.io/collections/global-payments/open-global-payments-transactions-api/)
+- [Global Payments Unified Payments API](https://apis.io/collections/global-payments/open-global-payments-unified-payments-api/)
 
-#### Properties
+#### Security (2)
 
-- [Portal](https://developer.globalpayments.com/)
-- [Documentation](https://developer.globalpayments.com/#!/api)
-- [OpenAPI](openapi/global-payments-unified-payments-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/global-payments-unified-payments-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/global-payments-unified-payments-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### Global Payments Integrated API
+- [Global Payments Authentication](https://apis.io/security/global-payments/global-payments-authentication/)
+- [Global Payments Domain Security](https://apis.io/security/global-payments/global-payments-domain-security/)
 
-The Global Payments Integrated API provides ISVs and software partners with payment integration capabilities including credit card processing, ACH payments, and reporting. The platform supports semi-integrated and fully integrated solutions with developer resources, SDKs, and sandbox environments.
+#### OAuth scopes (1)
 
-- **Human URL:** [https://developer.globalpaymentsintegrated.com/](https://developer.globalpaymentsintegrated.com/)
-- **Base URL:** `https://api.globalpaymentsintegrated.com`
+The permissions the API asks for.
 
-#### Tags
+- [Global Payments Scopes](https://apis.io/scopes/global-payments/global-payments-scopes/)
 
-- ISV
-- Payment Integration
-- Payments
-- Software Partners
+#### Plans and pricing (1)
 
-#### Properties
+Published plans, tiers and prices.
 
-- [Portal](https://developer.globalpaymentsintegrated.com/)
-- [Documentation](https://www.globalpaymentsintegrated.com/en-us/apis-and-sdks/developer-resources)
-- [Postman Collection](collections/global-payments-unified-payments-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/global-payments-unified-payments-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Global Payments Plans Pricing](https://apis.io/plans/global-payments/global-payments-plans-pricing/)
 
-## Common Properties
+#### Rate limits (1)
 
-- [GitHub Organization](https://github.com/globalpayments)
-- [LinkedIn](https://www.linkedin.com/company/global-payments)
-- [Portal](https://developer.globalpayments.com/)
+Published request limits.
+
+- [Global Payments Rate Limits](https://apis.io/rate-limits/global-payments/global-payments-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Global Payments Finops](https://apis.io/finops/global-payments/global-payments-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.globalpayments.com/)
-- [L L Ms Txt](https://developer.globalpayments.com/llms.txt)
+- [Blog](https://www.globalpayments.com/insights)
+- [GitHub](https://github.com/globalpayments)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
+**Kin Score 25.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 44.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 5.3 |
+
+**Agent readiness 20.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.6** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/global-payments/](https://apis.io/providers/global-payments/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Global Payments: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/global-payments/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
